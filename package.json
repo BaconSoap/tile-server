@@ -6,6 +6,7 @@
   "repository": "git@github.com:BaconSoap/tile-server.git",
   "author": "Andrew Varnerin <andrew@varnerin.info>",
   "license": "MIT",
+  "scripts": {"start": "node index.js"},
   "engines": {
     "node": ">4 <6"
   },
