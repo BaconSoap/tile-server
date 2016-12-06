@@ -19,7 +19,7 @@ strata
         pathname: './data/us-states-baselayer.xml',
         scale: 1,
         tileSize: 256
-      }));
+      }))
   .layer('c')
     .route('tile.png')
       .use(disk.cache({dir: './.tilecache/c'}))
