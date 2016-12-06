@@ -4,13 +4,27 @@
 
 <Parameters>
   <Parameter name="bounds">-178.8712,17.4043,-61.3614,71.7227</Parameter>
-  <Parameter name="center">-99.5938,40.3224,4</Parameter>
+  <Parameter name="center">-99.1104,39.6151,4</Parameter>
   <Parameter name="format">png</Parameter>
   <Parameter name="minzoom">0</Parameter>
   <Parameter name="maxzoom">10</Parameter>
   <Parameter name="name"><![CDATA[test-counties]]></Parameter>
 </Parameters>
 
+<Style name="land" filter-mode="first" >
+  <Rule>
+    <LineSymbolizer stroke-width="0.5" />
+    <PolygonSymbolizer fill-opacity="1" fill="#696969" />
+  </Rule>
+</Style>
+<Layer name="land"
+  srs="+proj=longlat +ellps=WGS84 +no_defs">
+    <StyleName>land</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[./land/ne_10m_land.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
 
 <Style name="states" filter-mode="first" >
   <Rule>
@@ -19,29 +33,11 @@
   </Rule>
 </Style>
 <Layer name="states"
-  srs="+proj=longlat +ellps=WGS84 +no_defs">
+  srs="+proj=longlat +ellps=GRS80 +no_defs">
     <StyleName>states</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[./states/ne_50m_admin_1_states_provinces_lakes.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[./states/cb_2015_us_state_500k.shp]]></Parameter>
        <Parameter name="id"><![CDATA[states]]></Parameter>
-       <Parameter name="project"><![CDATA[test-counties]]></Parameter>
-       <Parameter name="srs"><![CDATA[]]></Parameter>
-       <Parameter name="type"><![CDATA[shape]]></Parameter>
-    </Datasource>
-  </Layer>
-
-<Style name="state-labels" filter-mode="first" >
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <TextSymbolizer face-name="Arial Regular" size="15" ><![CDATA[[postal]]]></TextSymbolizer>
-  </Rule>
-</Style>
-<Layer name="state-labels"
-  srs="+proj=longlat +ellps=WGS84 +no_defs">
-    <StyleName>state-labels</StyleName>
-    <Datasource>
-       <Parameter name="file"><![CDATA[./states/ne_50m_admin_1_states_provinces_lakes.shp]]></Parameter>
-       <Parameter name="id"><![CDATA[state-labels]]></Parameter>
        <Parameter name="project"><![CDATA[test-counties]]></Parameter>
        <Parameter name="srs"><![CDATA[]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>

@@ -20,6 +20,14 @@ strata
         scale: 1,
         tileSize: 256
       }));
+  .layer('c')
+    .route('tile.png')
+      .use(disk.cache({dir: './.tilecache/c'}))
+      .use(mapnik({
+        pathname: './data/us-states-baselayer.xml',
+        scale: 1,
+        tileSize: 256
+      }));
 
 strata.listen(8080, function() {
   console.log('Listening on 8080...');
